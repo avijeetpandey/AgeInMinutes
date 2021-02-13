@@ -1,7 +1,8 @@
 # AgeInMinutes :tada: :rocket:
 An android app that will tell the age of person in minutes , written in kotlin
-
 The main idea is , user selects a date and the app will tell , how old is user as per the selected date
+
+**To use the app build it using android studio , or you can download from release section of this repo**
 
 ## Technologies used :muscle:
 - Core Android
