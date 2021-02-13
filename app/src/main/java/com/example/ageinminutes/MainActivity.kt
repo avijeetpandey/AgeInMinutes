@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import java.util.*
 
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, selectedYear, selectedMonth, selectedDayOfMonth ->
 
                     val selectedDate = "$selectedDayOfMonth/${selectedMonth+1}/${selectedYear}"
-                    Toast.makeText(this,"$selectedDate",Toast.LENGTH_LONG).show()
+                    val tvSelectedDate : TextView = findViewById(R.id.tvSelectedDate)
+                    tvSelectedDate.setText(selectedDate)
                 },year,month,day).show()
     }
 }
