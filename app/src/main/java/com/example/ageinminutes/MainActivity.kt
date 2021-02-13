@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
+import org.w3c.dom.Text
+import java.lang.System.currentTimeMillis
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -35,7 +37,16 @@ class MainActivity : AppCompatActivity() {
 
                     val selectedDate = "$selectedDayOfMonth/${selectedMonth+1}/${selectedYear}"
                     val tvSelectedDate : TextView = findViewById(R.id.tvSelectedDate)
-                    tvSelectedDate.setText(selectedDate)
+                    tvSelectedDate.text = selectedDate
+                    val simpleDateFormat = SimpleDateFormat("dd/mm/yyyy",Locale.ENGLISH)
+                    val theDate = simpleDateFormat.parse(selectedDate)
+                    val selectedDateInMinutes = theDate!!.time / 60000
+                    val currentDate = simpleDateFormat.parse(simpleDateFormat.format((currentTimeMillis())))
+                    val currentDateToMinutes = currentDate!!.time / 60000
+                    val differenceInMinutes = currentDateToMinutes - selectedDateInMinutes
+                    val tvSelectedDateInMinutes : TextView = findViewById(R.id.tvSelectedDateInMinute)
+                    tvSelectedDateInMinutes.text = differenceInMinutes.toString()
+
                 },year,month,day).show()
     }
 }
